@@ -1,19 +1,14 @@
 {
-  "name": "lenovo",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "daily free earnig gift code",
-  "main": "index.js",
+  "description": "My Backend App",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brajmohan88/Free-Gift-code-daily-free-earnig.git"
-  },
-  "author": "Brajmohan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/brajmohan88/Free-Gift-code-daily-free-earnig/issues"
-  },
-  "homepage": "https://github.com/brajmohan88/Free-Gift-code-daily-free-earnig#readme"
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1",
+    "dotenv": "^16.0.3"
+  }
 }
