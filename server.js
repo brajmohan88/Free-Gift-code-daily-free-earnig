@@ -15,7 +15,7 @@ app.use("/api/gift-codes", giftCodeRoutes);
 app.use("/api/withdrawals", withdrawalRoutes);
 
 // Connect to Database
-mongoose.connect("mongodb+srv://Brajmohan8800:<db_password>@cluster0.n4v1h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect("mongodb+srv://Brajmohan8800:<Brajmo8th>@cluster0.n4v1h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB Connected")).catch(err => console.log(err));
