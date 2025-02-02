@@ -39,3 +39,21 @@
     "lint": "eslint lib test"
   }
 }
+{
+  "name": "telegram-game",
+  "version": "1.0.0",
+  "description": "Telegram integrated game with payment system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.1",
+    "razorpay": "^2.8.2",
+    "telegram-bot-api": "^1.3.0"
+  }
+}
+
