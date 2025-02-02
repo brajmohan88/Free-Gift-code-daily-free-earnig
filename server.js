@@ -22,3 +22,6 @@ mongoose.connect("mongodb+srv://Brajmohan8800:<db_password>@cluster0.n4v1h.mongo
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get("/", (req, res) => {
+    res.send("Backend is Running Successfully!");
+});
