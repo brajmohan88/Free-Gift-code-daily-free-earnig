@@ -1,30 +1,39 @@
 const express = require("express");
+const User = require("../models/userModel"); // ✅ सही Import Path
 const router = express.Router();
 
-// Dummy user data (later you can connect this with MongoDB)
-const users = [
-    { id: 1, name: "Rahul", balance: 50 },
-    { id: 2, name: "Amit", balance: 100 }
-];
-
-// Get all users
-router.get("/", (req, res) => {
-    res.json(users);
+// 🟢 सभी Users को प्राप्त करें
+router.get("/", async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
-// Get user by ID
-router.get("/:id", (req, res) => {
-    const user = users.find(u => u.id === parseInt(req.params.id));
-    if (!user) return res.status(404).json({ message: "User not found" });
-    res.json(user);
+// 🟢 ID से User प्राप्त करें
+router.get("/:id", async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ message: "User not found" });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
-// Create a new user
-router.post("/", (req, res) => {
+// 🟢 नया User बनाएँ
+router.post("/", async (req, res) => {
     const { name, balance } = req.body;
-    const newUser = { id: users.length + 1, name, balance };
-    users.push(newUser);
-    res.status(201).json(newUser);
+    const newUser = new User({ name, balance });
+
+    try {
+        await newUser.save();
+        res.status(201).json(newUser);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 });
 
 module.exports = router;
